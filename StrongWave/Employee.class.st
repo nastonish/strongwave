@@ -19,6 +19,32 @@ Class {
 }
 
 { #category : 'accessing' }
+Employee class >> lastName: aString experience: years hourlyRate: rate minHours: hours [
+    ^ self new
+        lastName: aString;
+        experienceYears: years;
+        hourlyRate: rate;
+        minWeeklyHours: hours;
+        yourself.
+
+]
+
+{ #category : 'instance creation' }
+Employee class >> lastName: aString
+	experienceYears: years
+	hourlyRate: rate
+	minWeeklyHours: minHours [
+
+	^ self new
+		lastName: aString;
+		experienceYears: years;
+		hourlyRate: rate;
+		minWeeklyHours: minHours;
+		yourself
+
+]
+
+{ #category : 'accessing' }
 Employee >> experienceYears [
     ^ experienceYears
 ]
@@ -36,6 +62,15 @@ Employee >> hourlyRate [
 { #category : 'accessing' }
 Employee >> hourlyRate: aNumber [
     hourlyRate := aNumber
+]
+
+{ #category : 'initialization' }
+Employee >> initialize [
+    super initialize.
+    experienceYears := 0.
+    hourlyRate := 0.
+    minWeeklyHours := 0.
+
 ]
 
 { #category : 'accessing' }
@@ -56,4 +91,28 @@ Employee >> minWeeklyHours [
 { #category : 'accessing' }
 Employee >> minWeeklyHours: aNumber [
     minWeeklyHours := aNumber
+]
+
+{ #category : 'printing' }
+Employee >> printOn: aStream [
+    super printOn: aStream.
+    aStream
+        nextPutAll: ' (';
+        nextPutAll: lastName;
+        nextPutAll: ', experience: ';
+        print: experienceYears;
+        nextPutAll: ', hourly rate: ';
+        print: hourlyRate;
+        nextPutAll: ', min hours: ';
+        print: minWeeklyHours;
+        nextPut: $).
+
+]
+
+{ #category : 'salary' }
+Employee >> weeklySalary [
+    "Return weekly salary for a basic employee"
+    
+    ^ hourlyRate * minWeeklyHours
+
 ]
