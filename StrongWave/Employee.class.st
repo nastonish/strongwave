@@ -17,3 +17,43 @@ Class {
 	#category : 'StrongWave',
 	#package : 'StrongWave'
 }
+
+{ #category : 'accessing' }
+Employee >> experienceYears [
+    ^ experienceYears
+]
+
+{ #category : 'accessing' }
+Employee >> experienceYears: aNumber [
+    experienceYears := aNumber
+]
+
+{ #category : 'accessing' }
+Employee >> hourlyRate [
+    ^ hourlyRate
+]
+
+{ #category : 'accessing' }
+Employee >> hourlyRate: aNumber [
+    hourlyRate := aNumber
+]
+
+{ #category : 'accessing' }
+Employee >> lastName [
+    ^ lastName
+]
+
+{ #category : 'accessing' }
+Employee >> lastName: aString [
+    lastName := aString
+]
+
+{ #category : 'accessing' }
+Employee >> minWeeklyHours [
+    ^ minWeeklyHours
+]
+
+{ #category : 'accessing' }
+Employee >> minWeeklyHours: aNumber [
+    minWeeklyHours := aNumber
+]
