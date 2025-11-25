@@ -51,6 +51,7 @@ Employee >> experienceYears [
 
 { #category : 'accessing' }
 Employee >> experienceYears: aNumber [
+	 aNumber < 0 ifTrue: [ self error: 'Experience years cannot be negative' ].
     experienceYears := aNumber
 ]
 
@@ -113,6 +114,5 @@ Employee >> printOn: aStream [
 Employee >> weeklySalary [
     "Return weekly salary for a basic employee"
     
-    ^ hourlyRate * minWeeklyHours
-
+    ^ self subclassResponsibility
 ]
