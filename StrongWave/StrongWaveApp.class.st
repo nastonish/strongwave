@@ -110,9 +110,35 @@ StrongWaveApp >> initialize [
 
 ]
 
+{ #category : 'accessing' }
+StrongWaveApp >> managers [
+    ^ employees select: [ :e | e isKindOf: Manager ]
+
+]
+
 { #category : 'printing' }
 StrongWaveApp >> printAllEmployees [
     employees do: [ :each |
         Transcript show: each; cr ].
+
+]
+
+{ #category : 'printing' }
+StrongWaveApp >> printManagers [
+    self managers do: [ :m |
+        Transcript show: m; cr ].
+
+]
+
+{ #category : 'printing' }
+StrongWaveApp >> printProgrammers [
+    self programmers do: [ :p |
+        Transcript show: p; cr ].
+
+]
+
+{ #category : 'accessing' }
+StrongWaveApp >> programmers [
+    ^ employees select: [ :e | e isKindOf: Programmer ]
 
 ]
