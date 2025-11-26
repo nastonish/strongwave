@@ -44,6 +44,44 @@ Employee class >> lastName: aString
 
 ]
 
+{ #category : 'arithmetic' }
+Employee >> * aNumber [
+    ^ self weeklySalary * aNumber
+]
+
+{ #category : 'arithmetic' }
+Employee >> + aWorker [
+    ^ self weeklySalary + aWorker weeklySalary
+]
+
+{ #category : 'comparing' }
+Employee >> < aWorker [
+    ^ self weeklySalary < aWorker weeklySalary
+
+]
+
+{ #category : 'comparing' }
+Employee >> <= aWorker [
+    ^ (self < aWorker) or: [self = aWorker]
+]
+
+{ #category : 'comparing' }
+Employee >> = aWorker [
+    ^ self weeklySalary = aWorker weeklySalary
+
+]
+
+{ #category : 'comparing' }
+Employee >> > aWorker [
+    ^ aWorker < self
+
+]
+
+{ #category : 'comparing' }
+Employee >> >= aWorker [
+    ^ (self > aWorker) or: [self = aWorker]
+]
+
 { #category : 'accessing' }
 Employee >> experienceYears [
     ^ experienceYears
