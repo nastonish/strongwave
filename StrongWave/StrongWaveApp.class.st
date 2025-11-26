@@ -110,6 +110,12 @@ StrongWaveApp >> initialize [
 
 ]
 
+{ #category : 'adding' }
+StrongWaveApp >> loadEmployeesFromDatabase: aDatabase [
+    employees := aDatabase allEmployees asOrderedCollection.
+
+]
+
 { #category : 'accessing' }
 StrongWaveApp >> managers [
     ^ employees select: [ :e | e isKindOf: Manager ]
