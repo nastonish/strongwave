@@ -36,6 +36,7 @@ Programmer >> actualHours [
 
 { #category : 'accessing' }
 Programmer >> actualHours: aNumber [
+	 aNumber < 0 ifTrue: [ self error: 'Actual hours cannot be negative' ].
     actualHours := aNumber
 
 ]

@@ -13,12 +13,12 @@ EmployeeTest >> testComparisonByWeeklySalary [
         experience: 3
         hourlyRate: 100
         minHours: 40
-        actualHours: 38.   "зарплата менша"
+        actualHours: 38.   
     m := Manager
         lastName: 'Petrenko'
         experience: 10
         hourlyRate: 300
-        subordinates: 5.   "зарплата більша"
+        subordinates: 5.   
 
     self assert: (p < m).
     self deny: (p > m).
@@ -66,6 +66,22 @@ EmployeeTest >> testExperienceYearsCannotBeNegative [
 ]
 
 { #category : 'tests' }
+EmployeeTest >> testHourlyRateCannotBeNegative [ 
+    | p |
+    p := Programmer
+        lastName: 'Ivanov'
+        experience: 3
+        hourlyRate: 100
+        minHours: 40
+        actualHours: 38.
+
+    self
+        should: [ p hourlyRate: -50 ]
+        raise: Error.
+
+]
+
+{ #category : 'tests' }
 EmployeeTest >> testManagerWeeklySalaryWithSubordinates [
     | m |
     m := Manager
@@ -75,6 +91,36 @@ EmployeeTest >> testManagerWeeklySalaryWithSubordinates [
         subordinates: 5.
     self assert: m weeklySalary equals: 300 * 40 * (1 + (0.01 * 5)).
 
+]
+
+{ #category : 'tests' }
+EmployeeTest >> testMinimumWeeklyHoursCannotBeNegative [
+    | p |
+    p := Programmer
+        lastName: 'Ivanov'
+        experience: 3
+        hourlyRate: 100
+        minHours: 40
+        actualHours: 38.
+
+    self
+        should: [ p minWeeklyHours: -10 ]
+        raise: Error.
+]
+
+{ #category : 'tests' }
+EmployeeTest >> testProgrammerActualHoursCannotBeNegative [
+    | p |
+    p := Programmer
+        lastName: 'Ivanov'
+        experience: 3
+        hourlyRate: 100
+        minHours: 40
+        actualHours: 30.
+
+    self
+        should: [ p actualHours: -5 ]
+        raise: Error.
 ]
 
 { #category : 'tests' }

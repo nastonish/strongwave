@@ -100,6 +100,7 @@ Employee >> hourlyRate [
 
 { #category : 'accessing' }
 Employee >> hourlyRate: aNumber [
+	 aNumber < 0 ifTrue: [ self error: 'Hourly rate cannot be negative' ].
     hourlyRate := aNumber
 ]
 
@@ -129,6 +130,7 @@ Employee >> minWeeklyHours [
 
 { #category : 'accessing' }
 Employee >> minWeeklyHours: aNumber [
+	aNumber < 0 ifTrue: [ self error: 'Minimum weekly hours cannot be negative' ].
     minWeeklyHours := aNumber
 ]
 
